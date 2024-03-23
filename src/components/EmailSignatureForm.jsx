@@ -84,19 +84,19 @@ const EmailSignatureForm = () => {
   return (
     <div className='email-generator'>
       <label>Name:</label>
-      <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+      <input type='text' value={name} required onChange={(e) => setName(e.target.value)} />
       <br />
       <label>Title:</label>
-      <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input type='text' value={title} required onChange={(e) => setTitle(e.target.value)} />
       <br />
       <label>Mobile Phone:</label>
-      <input type='tel' value={cellPhone} onChange={(e) => setCellPhone(e.target.value)} />
+      <input type='tel' value={cellPhone} required onChange={(e) => setCellPhone(e.target.value)} />
       <br />
       <label>Email:</label>
-      <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type='email' value={email} required onChange={(e) => setEmail(e.target.value)} />
       <br />
       <label>Profile Photo URL:</label>
-      <input type='url' value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
+      <input type='url' value={photoURL} required onChange={(e) => setPhotoURL(e.target.value)} />
       <br />
       <button onClick={handleCopySignature}>Copy HTML Signature</button>
     </div>
