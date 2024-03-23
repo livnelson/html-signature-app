@@ -52,7 +52,7 @@ const EmailSignatureForm = () => {
               </p>
               <p style="margin: 6px 0px; font-size: 12px">
                 <span style="color:#ef8022;"><strong>O:</strong></span>
-                <a href="tel:+123456789" style="text-decoration: none; color: #000; cursor:pointer;">+1 (234) 567-89</a>
+                <a href="tel: 3239000511" style="text-decoration: none; color: #000; cursor:pointer;">323-900-0511</a>
               </p>
               <p style="margin: 4px 0px; font-size: 12px">
                 <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;"
