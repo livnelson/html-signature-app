@@ -1,0 +1,46 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+body {
+  background-color: #f1f3f5;
+}
+
+.email-generator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1)
+}
+
+.instructions{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+input {
+  padding: 5px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input:hover {
+  outline: none;
+  border-color: #ef8022;
+}
+
+input:focus {
+  outline: none;
+  border: solid 2px #ef8022;
+}
