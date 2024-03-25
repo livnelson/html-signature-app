@@ -11,10 +11,7 @@ const App = () => {
       <ol className='instructions'>
         <li>Fill in the information you want to include (name, title, etc).</li>
         <li> Click the "Download HTML Signature Button."</li>
-        <li>
-          {' '}
-          You'll see a downloaded file on your computer. Right-click on it and choose "copy."
-        </li>
+        <li>You'll see a downloaded file on your computer. Right-click on it and choose "copy."</li>
         <li>
           Then, head over to your email signature settings and find the edit/add signatiure option.
           Paste the entire file there.

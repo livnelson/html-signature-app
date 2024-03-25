@@ -25,12 +25,6 @@ const EmailSignatureForm = () => {
     return emailPattern.test(email)
   }
 
-  const isValidURL = (url) => {
-    // Simple URL validation using regex
-    const urlPattern = /^(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.[\w\d]{2,}$/i
-    return urlPattern.test(url)
-  }
-
   const generateSignature = () => {
     const sanitizedName = sanitizeAndEscape(name)
     const sanitizedTitle = sanitizeAndEscape(title)
@@ -39,7 +33,7 @@ const EmailSignatureForm = () => {
     const sanitizedProfileImg = sanitizeAndEscape(photoURL)
 
     const signature = `
-      <!DOCTYPE html>
+    <!DOCTYPE html>
       <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -50,9 +44,9 @@ const EmailSignatureForm = () => {
         <table cellpadding="0" cellspacing="0" style="width: 300px;">
           <tr>
             <td style="padding: 4px 10px; border-right: 1px solid #ccc">
-              <img src="https://res.cloudinary.com/dovuffpii/image/upload/v1711154514/Peoplescape/belinda_uuekxk.jpg" alt="Profile Photo" width="90" height="90" />
-              <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">Belinda Morris</h5>
-              <p style="margin: 0; font-size: 10px"><strong>CEO &amp; Founder</strong></p>
+              <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" />
+              <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedName}</h5>
+              <p style="margin: 0; font-size: 10px"><strong>${sanitizedTitle}</strong></p>
             </td>
             <td style="padding: 0px 10px">
               <p style="margin: 0px; font-size: 12px">
@@ -61,10 +55,10 @@ const EmailSignatureForm = () => {
               </p>
               <p style="margin: 6px 0px; font-size: 12px">
                 <span style="color:#ef8022;"><strong>O:</strong></span>
-                <a href="tel:3239000511" style="text-decoration: none; color: #000; cursor:pointer;">323-900-0511</a>
+                <a href="${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
               </p>
               <p style="margin: 4px 0px; font-size: 12px">
-                <a href="mailto:belinda@peoplescapehr.com" style="text-decoration: none; color: #000; cursor:pointer;">belinda@peoplescapehr.com</a>
+                <a href="${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
               </p>
               <img src="https://res.cloudinary.com/dovuffpii/image/upload/v1711154850/Peoplescape/peoplescape-hr-logo_figp7x.png" alt="Peoplescape HR Logo" width="150" height="auto" />
             </td>
@@ -76,13 +70,12 @@ const EmailSignatureForm = () => {
     return signature
   }
 
-  const handleDownloadSignature = () => {
+  const handleDownloadSignature = (e) => {
+    e.preventDefault()
     if (!name || !title || !cellPhone || !email || !photoURL) {
       setError('Please fill in all fields.')
     } else if (!isValidEmail(email)) {
       setError('Please enter a valid email address.')
-    } else if (!isValidURL(photoURL)) {
-      setError('Please enter a valid URL for the Profile Photo.')
     } else {
       const signature = generateSignature()
       const blob = new Blob([signature], { type: 'text/html' })
