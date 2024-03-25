@@ -11,27 +11,40 @@ body {
 .email-generator {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #ffffff;
   padding: 2rem;
-  border-radius: 7px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1)
+  max-width: 440px;
 }
 
-.instructions{
+.email-generator-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  text-align: center;
-  font-size: 13px;
-  margin-bottom: 30px;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  border-radius: 7px;
+  width: 440px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: .5px;;
+  margin: 10px 0px 0px 0px;
+  width: 420px;
 }
 
 input {
-  padding: 5px;
-  width: 300px;
+  padding: 8px;
+  width: 350px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  text-align: left;
+  letter-spacing: 0.75px;
   cursor: pointer;
 }
 
@@ -43,4 +56,12 @@ input:hover {
 input:focus {
   outline: none;
   border: solid 2px #ef8022;
+}
+
+label {
+  font-size: 15px;
+  padding-bottom: 4px;
+  letter-spacing: .5px;
+  margin-top: 6px;
+  font-weight: 500;
 }
