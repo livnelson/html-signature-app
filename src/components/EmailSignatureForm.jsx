@@ -45,8 +45,8 @@ const EmailSignatureForm = () => {
       <tr>
         <td style="padding: 4px 10px; border-right: 1px solid #ccc">
           <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" />
-          <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px; line-height: 16px;">${sanitizedName}</h5>
-          <p style="margin: 0; font-size: 10px; line-height: 12px;"><strong>${sanitizedTitle}</strong></p>
+          <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedName}</h5>
+          <p style="margin: 0; font-size: 10px;"><strong>${sanitizedTitle}</strong></p>
         </td>
         <td style="padding: 0px 10px; margin-top: 0px;">
           <div style="vertical-align: top;">
@@ -62,7 +62,7 @@ const EmailSignatureForm = () => {
               <a href="${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
             </p>
             <img
-              src="https://res.cloudinary.com/dovuffpii/image/upload/v1711154850/Peoplescape/peoplescape-hr-logo_figp7x.png"
+              src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
               alt="Peoplescape HR Logo"
               width="150"
               height="auto"
