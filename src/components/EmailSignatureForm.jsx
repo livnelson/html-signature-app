@@ -41,10 +41,10 @@ const EmailSignatureForm = () => {
     <title>Email Signature</title>
   </head>
   <body style="font-family: Arial, sans-serif">
-    <table cellpadding="0" cellspacing="0" style="width: 300px;">
+    <table cellpadding="0" cellspacing="0" style="width: 320px; max-width: 320px;">
       <tr>
         <td style="padding: 4px 10px; border-right: 1px solid #ccc">
-          <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" />
+          <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" style="max-width: 90px; max-height: 90px;" />
           <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedName}</h5>
           <p style="margin: 0; font-size: 10px;"><strong>${sanitizedTitle}</strong></p>
         </td>
@@ -55,16 +55,17 @@ const EmailSignatureForm = () => {
               <a href="tel:760-880-7005" style="text-decoration: none; color: #000; cursor:pointer;">760-880-7005</a>
             </p>
             <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
-              <span style="color:#ef8022;"><strong>O:</strong></span>
-              <a href="${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
+            <span style="color:#ef8022;"><strong>O:</strong></span>
+            <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
             </p>
             <p style="margin: 4px 0px; font-size: 12px; line-height: 16px;">
-              <a href="${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
+              <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
             </p>
             <img
               src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
               alt="Peoplescape HR Logo"
               width="150"
+              max-width="150" 
               height="auto"
               style="margin-top: 8px;"
             />
