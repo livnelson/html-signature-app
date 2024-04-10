@@ -94,13 +94,13 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-                <!-- <img
+                <img
                   src="${sanitizedProfileImg}"
                   alt="Profile Photo"
                   width="90"
                   height="90"
                   style="margin-right: 6px"
-                /> -->
+                />
                 <h5 style="margin: 0; color: #ef8022; font-size: 11px; line-height: 1.15">
                   ${sanitizedFirstName} ${sanitizedLastName}
                 </h5>
