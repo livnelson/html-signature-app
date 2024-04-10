@@ -36,49 +36,120 @@ const EmailSignatureForm = () => {
 
     const signature = `
     <!DOCTYPE html>
-      <html lang="en">
+    <html lang="en">
       <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>    
-      <body>
-        <p style="font-family: Arial, sans-serif; font-size: 12px; margin: 6px 6px;">Warm Regards,</p>
-        <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1; margin: 6px 0px 4px 6px;">Name</p>
-        <table cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; max-width: 320px; ">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          .dancing-script-signature {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
+            font-style: normal;
+          }
+          .signature-table {
+            width: 100%;
+            max-width: 500px; /* Adjust max-width as needed */
+            border-collapse: collapse;
+          }
+          .signature-table td {
+            padding: 6px;
+            vertical-align: top;
+          }
+          .profile-cell {
+            padding-right: 0; /* Remove right padding for profile image cell */
+            border-right: 1px solid #ccc;
+            width: 100px; /* Adjust width of profile image column */
+          }
+          .profile-cell img {
+            display: block;
+            width: 100%; /* Ensure profile image fills the column */
+            height: auto;
+            margin-bottom: 6px;
+          }
+        </style>
+        <title>HTML Email Signature</title>
+      </head>
+      <body style="margin: 0; padding: 0">
+        <p style="margin: 0; font-family: Calibri, sans-serif">Warm Regards,</p>
+        <p class="dancing-script-signature" style="margin: 4px 0px; font-size: 18px">
+          ${sanitizedFirstName}
+        </p>
+        <table
+          class="signature-table"
+          cellpadding="0"
+          cellspacing="0"
+          style="width: 100%; font-family: Calibri, sans-serif; margin-top: 6px"
+        >
           <tr>
-            <td style="padding: 4px 10px; border-right: 1px solid #ccc; max-width: 104px;">
-              <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" />
-              <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedFirstName} ${sanitizedLastName}</h5>
-              <p style="margin: 0; font-size: 10px;"><strong>${sanitizedTitle}</strong></p>
-            </td> 
-            <td style="padding: 0px 10px; margin-top: 0px; margin-bottom: 0px;">
-              <div style="vertical-align: top; margin-left: 4px;">
-                <p style="margin: 0px; font-size: 12px; line-height: 16px;">
-                  <span style="color:#ef8022;"><strong>M:</strong></span>
-                  <a href="tel:760-880-7005" style="text-decoration: none; color: #000; cursor:pointer;">760-880-7005</a>
-                </p>
-                <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
-                <span style="color:#ef8022;"><strong>O:</strong></span>
-                <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
-                </p>
-                <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
-                  <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
-                </p>
+            <td class="profile-cell">
+              <a
+                href="https://peoplescapehr.com/our-team/"
+                target="_blank"
+                style="text-decoration: none"
+              >
+                <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/02/21/16/30/mexico-2086549_1280.jpg"
+                  alt="Profile Photo"
+                  width="90"
+                  height="90"
+                />
+                <!-- <img
+                  src="${sanitizedProfileImg}"
+                  alt="Profile Photo"
+                  width="90"
+                  height="90"
+                  style="margin-right: 6px"
+                /> -->
+                <h5 style="margin: 0; color: #ef8022; font-size: 11px; line-height: 1.15">
+                  ${sanitizedFirstName} ${sanitizedLastName}
+                </h5>
+                <p style="margin: 0; font-size: 10px"><strong>${sanitizedTitle}</strong></p>
+              </a>
+            </td>
+            <td>
+              <p style="margin: 0; font-size: 12px">
+                <span style="color: #ef8022"><strong>M:</strong></span>
+                <a href="tel:760-880-7005" style="text-decoration: none; color: #000">760-880-7005</a>
+              </p>
+              <p style="margin: 0; font-size: 12px">
+                <span style="color: #ef8022"><strong>O:</strong></span>
+                <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000"
+                  >${sanitizedCellPhone}</a
+                >
+              </p>
+              <p style="margin: 0; font-size: 12px">
+                <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000"
+                  >${sanitizedEmail}</a
+                >
+              </p>
+              <a href="https://peoplescapehr.com/" target="_blank">
                 <img
                   src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
                   alt="Peoplescape HR Logo"
                   width="150"
                   height="auto"
-                  style="margin-top: px;"
+                  style="margin-top: 4px"
                 />
-              </div>
+              </a>
             </td>
           </tr>
         </table>
-        <p style="font-size: 12px; font-family: Arial, sans-serif; margin: 10px 0px 0px 6px;"><strong>I respect your personal time and do not expect a response when you are not at work.</strong></p>
+        <p style="font-size: 12px; font-family: Calibri, sans-serif; margin: 10px 6px 0">
+          <strong
+            >I respect your personal time and do not expect a response when you are not at work.</strong
+          >
+        </p>
       </body>
     </html>
-   `
+    `
     return signature
   }
 
