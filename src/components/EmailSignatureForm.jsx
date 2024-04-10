@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import DOMPurify from 'dompurify'
 
 const EmailSignatureForm = () => {
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [title, setTitle] = useState('')
   const [cellPhone, setCellPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -26,62 +27,67 @@ const EmailSignatureForm = () => {
   }
 
   const generateSignature = () => {
-    const sanitizedName = sanitizeAndEscape(name)
+    const sanitizedFirstName = sanitizeAndEscape(firstName)
+    const sanitizedLastName = sanitizeAndEscape(lastName)
     const sanitizedTitle = sanitizeAndEscape(title)
     const sanitizedCellPhone = sanitizeAndEscape(cellPhone)
     const sanitizedEmail = sanitizeAndEscape(email)
     const sanitizedProfileImg = sanitizeAndEscape(photoURL)
 
     const signature = `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Signature</title>
-  </head>
-  <body style="font-family: Arial, sans-serif">
-    <table cellpadding="0" cellspacing="0" style="width: 320px; max-width: 320px;">
-      <tr>
-        <td style="padding: 4px 10px; border-right: 1px solid #ccc">
-          <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" style="max-width: 90px; max-height: 90px;" />
-          <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedName}</h5>
-          <p style="margin: 0; font-size: 10px;"><strong>${sanitizedTitle}</strong></p>
-        </td>
-        <td style="padding: 0px 10px; margin-top: 0px;">
-          <div style="vertical-align: top;">
-            <p style="margin: 0px; padding-top: 0px; font-size: 12px; line-height: 16px;">
-              <span style="color:#ef8022;"><strong>M:</strong></span>
-              <a href="tel:760-880-7005" style="text-decoration: none; color: #000; cursor:pointer;">760-880-7005</a>
-            </p>
-            <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
-            <span style="color:#ef8022;"><strong>O:</strong></span>
-            <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
-            </p>
-            <p style="margin: 4px 0px; font-size: 12px; line-height: 16px;">
-              <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
-            </p>
-            <img
-              src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
-              alt="Peoplescape HR Logo"
-              width="150"
-              max-width="150" 
-              height="auto"
-              style="margin-top: 8px;"
-            />
-          </div>
-        </td>
-      </tr>
-    </table>
-  </body>
-  </html>
+    <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+      </head>    
+      <body>
+        <p style="font-family: Arial, sans-serif;">Warm Regards,</p>
+        <p style="font-family: Hurricane; font-size: 38px; line-height: 1; margin: 0px; margin-bottom: 20px; padding: 0px;">${sanitizedFirstName}</p>
+        <table cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; max-width: 320px; ">
+          <tr>
+            <td style="padding: 4px 10px; border-right: 1px solid #ccc; max-width: 104px;">
+              <img src="${sanitizedProfileImg}" alt="Profile Photo" width="90" height="90" />
+              <h5 style="margin: 3px 0px; color: #ef8022; font-size: 13px;">${sanitizedFirstName} ${sanitizedLastName}</h5>
+              <p style="margin: 0; font-size: 10px;"><strong>${sanitizedTitle}</strong></p>
+            </td> 
+            <td style="padding: 0px 10px; margin-top: 0px; margin-bottom: 0px;">
+              <div style="vertical-align: top; margin-left: 4px;">
+                <p style="margin: 0px; font-size: 12px; line-height: 16px;">
+                  <span style="color:#ef8022;"><strong>M:</strong></span>
+                  <a href="tel:760-880-7005" style="text-decoration: none; color: #000; cursor:pointer;">760-880-7005</a>
+                </p>
+                <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
+                <span style="color:#ef8022;"><strong>O:</strong></span>
+                <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedCellPhone}</a>
+                </p>
+                <p style="margin: 6px 0px; font-size: 12px; line-height: 16px;">
+                  <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000; cursor:pointer;">${sanitizedEmail}</a>
+                </p>
+                <img
+                  src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
+                  alt="Peoplescape HR Logo"
+                  width="150"
+                  height="auto"
+                  style="margin-top: px;"
+                />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p style="font-size: 12px; font-family: Arial, sans-serif;"><strong>I respect your personal time and do not expect a response when you are not at work.</strong></p>
+      </body>
+    </html>
     `
     return signature
   }
 
   const handleDownloadSignature = (e) => {
     e.preventDefault()
-    if (!name || !title || !cellPhone || !email || !photoURL) {
+    if (!firstName || !lastName || !title || !cellPhone || !email || !photoURL) {
       setError('Please fill in all fields.')
     } else if (!isValidEmail(email)) {
       setError('Please enter a valid email address.')
@@ -100,13 +106,22 @@ const EmailSignatureForm = () => {
   return (
     <div className='email-generator'>
       <form className='email-generator-form'>
-        <label>Name:</label>
+        <label>First Name:</label>
         <input
           type='text'
-          value={name}
-          placeholder='John Doe'
+          value={firstName}
+          placeholder='John'
           required
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <br />
+        <label>Last Name:</label>
+        <input
+          type='text'
+          value={lastName}
+          placeholder='Doe'
+          required
+          onChange={(e) => setLastName(e.target.value)}
         />
         <br />
         <label>Title:</label>
@@ -124,7 +139,12 @@ const EmailSignatureForm = () => {
           value={cellPhone}
           placeholder='555-867-5309'
           required
-          onChange={(e) => setCellPhone(e.target.value)}
+          onChange={(e) => {
+            const formattedPhone = e.target.value
+              .replace(/\D/g, '') // Remove non-numeric characters
+              .replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3') // Format to XXX-XXX-XXXX
+            setCellPhone(formattedPhone)
+          }}
         />
         <br />
         <label>Email:</label>
