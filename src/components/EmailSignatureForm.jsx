@@ -40,13 +40,10 @@ const EmailSignatureForm = () => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
       </head>    
       <body>
-        <p style="font-family: Arial, sans-serif;">Warm Regards,</p>
-        <p style="font-family: Hurricane; font-size: 38px; line-height: 1; margin: 0px; margin-bottom: 20px; padding: 0px;">${sanitizedFirstName}</p>
+        <p style="font-family: Arial, sans-serif; font-size: 12px; margin: 6px 6px;">Warm Regards,</p>
+        <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1; margin: 6px 0px 4px 6px;">Name</p>
         <table cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; max-width: 320px; ">
           <tr>
             <td style="padding: 4px 10px; border-right: 1px solid #ccc; max-width: 104px;">
@@ -78,10 +75,10 @@ const EmailSignatureForm = () => {
             </td>
           </tr>
         </table>
-        <p style="font-size: 12px; font-family: Arial, sans-serif;"><strong>I respect your personal time and do not expect a response when you are not at work.</strong></p>
+        <p style="font-size: 12px; font-family: Arial, sans-serif; margin: 10px 0px 0px 6px;"><strong>I respect your personal time and do not expect a response when you are not at work.</strong></p>
       </body>
     </html>
-    `
+   `
     return signature
   }
 
@@ -97,7 +94,7 @@ const EmailSignatureForm = () => {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = `${sanitizeAndEscape(name)}_signature.html`
+      a.download = `${sanitizeAndEscape(firstName)}_signature.html`
       a.click()
       setError('')
     }
