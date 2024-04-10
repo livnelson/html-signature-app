@@ -94,13 +94,6 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-                <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/02/21/16/30/mexico-2086549_1280.jpg"
-                  alt="Profile Photo"
-                  width="90"
-                  height="90"
-                />
                 <!-- <img
                   src="${sanitizedProfileImg}"
                   alt="Profile Photo"
