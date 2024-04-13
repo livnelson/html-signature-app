@@ -50,8 +50,8 @@ const EmailSignatureForm = () => {
         <title>HTML Email Signature</title>
       </head>
       <body style="margin: 0; padding: 0; font-family: Calibri, sans-serif">
-        <p style="margin: 0; font-size: 12px">Warm Regards,</p>
-        <p style="margin: 10px 0px; font-size: 12px">${sanitizedFirstName}</p>
+        <p style="margin: 0;">Warm Regards,</p>
+        <p style="margin: 10px 0px;">${sanitizedFirstName}</p>
         <table
           cellpadding="0"
           cellspacing="0"
@@ -61,7 +61,6 @@ const EmailSignatureForm = () => {
             margin-top: 6px;
             border-collapse: collapse;
             font-family: Calibri, sans-serif;
-            font-size: 11px;
           "
         >
           <tr>
@@ -79,41 +78,81 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-                <img 
+              <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
+                <img
+                src="https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg?t=st=1712973332~exp=1712976932~hmac=c76750f1e285b022173db2348932c66b5ae63077dd617ec6e97e81761c53828b&w=1480"
+                alt="Profile Photo"
+                width="100"
+                height="100"
+                style="margin-right: 6px"
+                />
+                <!-- <img 
                   src="${sanitizedProfileImg}" 
                   alt="Profile Photo" 
                   width="100" 
                   height="100" 
                   style="margin-right: 6px"
-                />
+                /> -->
                 <h5
                   style="
-                    margin: 0;
+                    margin: 4px 0px;
                     color: #ef8022;
-                    font-size: 11px;
-                    line-height: 1.25;
                   "
                 >
                   ${sanitizedFirstName} ${sanitizedLastName}
                 </h5>
-                <p style="margin: 0; line-height: 1.25; color: #000;">
+                <h6 style="margin: 4px 0px; color: #000;">
                   <strong>${sanitizedTitle}</strong>
-                </p>
+                </h6>
               </a>
             </td>
             <td style="padding: 6px; padding-left: 10px; vertical-align: top">
-              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; line-height: 1.25; font-family: Calibri, sans-serif;">
-              <span style="color: #ef8022; display: inline-block; width: 14px; text-align: center;"><strong>M:</strong></span>
-              <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; display: inline-block; width: 100px; vertical-align: middle; font-family: Calibri, sans-serif;">${sanitizedCellPhone}</a>
+              <p 
+                style="margin: 0;
+                margin-bottom: 2px;
+                padding-bottom: 3px;
+                font-family: Calibri, sans-serif;">
+              <span 
+                style="color: #ef8022;
+                display: inline-block;
+                width: 14px; 
+                text-align: center;">
+                <strong>M:&nbsp;&nbsp;</strong>
+              </span>
+              <a href="tel:${sanitizedCellPhone}" 
+                style="text-decoration:
+                none; color: #000;
+                display: inline-block; 
+                width: 100px;
+                vertical-align: middle;
+                font-family: Calibri, sans-serif;">
+                ${sanitizedCellPhone}</a>
               </p>
-              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; line-height: 1.25; font-family: Calibri, sans-serif;">
-                <span style="color: #ef8022; display: inline-block; width: 14px; text-align: center;"><strong>O:</strong></span>
-                <a href="tel:323 900-0511" style="text-decoration: none; color: #000; display: inline-block; width: 100px; vertical-align: middle; font-family: Calibri, sans-serif;">323 900-0511</a>
+              <p 
+                style="margin: 0;
+                margin-bottom: 2px;
+                padding-bottom: 3px;
+                font-family: Calibri, sans-serif;">
+                <span
+                  style="color: #ef8022;
+                  display: inline-block;
+                  width: 14px;
+                  text-align: center;">
+                  <strong>O:&nbsp;&nbsp;</strong>
+                </span>
+                <a href="tel:323 900-0511"
+                  style="text-decoration:
+                  none; color: #000;
+                  display: inline-block;
+                  width: 100px;
+                  vertical-align: middle;
+                  font-family: Calibri, sans-serif;">
+                  323 900-0511</a>
               </p>
               <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
                 <a
                   href="mailto:${sanitizedEmail}"
-                  style="text-decoration: none; color: #000; line-height: 1.25; font-family: Calibri, sans-serif;"
+                  style="text-decoration: none; color: #000; font-family: Calibri, sans-serif;"
                   >${sanitizedEmail}</a
                 >
               </p>
@@ -135,7 +174,6 @@ const EmailSignatureForm = () => {
         <p
           style="
             font-family: Calibri, sans-serif;
-            font-size: 11px;
             margin: 10px 6px 0;
           "
         >
