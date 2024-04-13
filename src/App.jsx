@@ -1,5 +1,4 @@
-// src/App.js
-import React, { useState } from 'react'
+import { useState } from 'react'
 import EmailSignatureForm from './components/EmailSignatureForm'
 import './App.css'
 
@@ -21,19 +20,24 @@ const App = () => {
         <h1>Email Signature Generator</h1>
         <h2>Ready to create your signature?</h2>
         <ol className='instructions'>
-          <li>Fill in the information you want to include (name, title, etc).</li>
+          <li>
+            Fill in the information you want to include (name, title, etc).
+          </li>
           <li>Click the "Download HTML Signature" button.</li>
           <li>
-            You'll see a downloaded file on your computer. Right-click on it and choose "copy."
+            You'll see a downloaded file on your computer. Right-click on it and
+            choose "copy."
           </li>
           <li>
-            Then, head over to your email signature settings and find the edit/add signature option.
-            Paste the entire file there.
+            Then, head over to your email signature settings and find the
+            edit/add signature option. Paste the entire file there.
           </li>
         </ol>
         <EmailSignatureForm
           onGenerateSignature={handleGenerateSignature}
           onPreviewUpdate={handlePreviewUpdate}
+          signature={signature}
+          generatedSignature={generatedSignature}
         />
       </div>
       {/* <div className='preview-container'>

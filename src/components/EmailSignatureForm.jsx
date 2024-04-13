@@ -41,18 +41,7 @@ const EmailSignatureForm = () => {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
-          rel="stylesheet"
-        />
         <style>
-          .dancing-script-signature {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 500;
-            font-style: normal;
-          }
           .signature-table {
             width: 100%;
             max-width: 500px; /* Adjust max-width as needed */
@@ -65,7 +54,7 @@ const EmailSignatureForm = () => {
           .profile-cell {
             padding-right: 0; /* Remove right padding for profile image cell */
             border-right: 1px solid #ccc;
-            width: 100px; /* Adjust width of profile image column */
+            width: 110px; /* Adjust width of profile image column */
           }
           .profile-cell img {
             display: block;
@@ -77,15 +66,13 @@ const EmailSignatureForm = () => {
         <title>HTML Email Signature</title>
       </head>
       <body style="margin: 0; padding: 0">
-        <p style="margin: 0; font-family: Calibri, sans-serif">Warm Regards,</p>
-        <p class="dancing-script-signature" style="margin: 4px 0px; font-size: 18px">
-          ${sanitizedFirstName}
-        </p>
+        <p style="margin: 0">Warm Regards,</p>
+        <p style="margin: 10px 0px">${sanitizedFirstName}</p>
         <table
           class="signature-table"
           cellpadding="0"
           cellspacing="0"
-          style="width: 100%; font-family: Calibri, sans-serif; margin-top: 6px"
+          style="width: 100%; margin-top: 6px"
         >
           <tr>
             <td class="profile-cell">
@@ -97,29 +84,46 @@ const EmailSignatureForm = () => {
                 <img
                   src="${sanitizedProfileImg}"
                   alt="Profile Photo"
-                  width="90"
-                  height="90"
+                  width="100"
+                  height="100"
                   style="margin-right: 6px"
                 />
-                <h5 style="margin: 0; color: #ef8022; font-size: 11px; line-height: 1.15">
+                <h5
+                  style="
+                    margin: 0;
+                    color: #ef8022;
+                    font-size: 11px;
+                    line-height: 1.25;
+                  "
+                >
                   ${sanitizedFirstName} ${sanitizedLastName}
                 </h5>
-                <p style="margin: 0; font-size: 10px"><strong>${sanitizedTitle}</strong></p>
+                <p style="margin: 0; font-size: 10px">
+                  <strong>${sanitizedTitle}</strong>
+                </p>
               </a>
             </td>
             <td>
-              <p style="margin: 0; font-size: 12px">
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; font-size: 12px;">
                 <span style="color: #ef8022"><strong>M:</strong></span>
-                <a href="tel:760-880-7005" style="text-decoration: none; color: #000">760-880-7005</a>
-              </p>
-              <p style="margin: 0; font-size: 12px">
-                <span style="color: #ef8022"><strong>O:</strong></span>
-                <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000"
+                <a
+                  href="tel:${sanitizedCellPhone}"
+                  style="text-decoration: none; color: #000"
                   >${sanitizedCellPhone}</a
                 >
               </p>
-              <p style="margin: 0; font-size: 12px">
-                <a href="mailto:${sanitizedEmail}" style="text-decoration: none; color: #000"
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px;  font-size: 12px">
+                <span style="color: #ef8022"><strong>O:</strong></span>
+                <a
+                  href="tel:760-880-7005"
+                  style="text-decoration: none; color: #000"
+                  >760-880-7005</a
+                >
+              </p>
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; font-size: 12px">
+                <a
+                  href="mailto:${sanitizedEmail}"
+                  style="text-decoration: none; color: #000"
                   >${sanitizedEmail}</a
                 >
               </p>
@@ -135,14 +139,15 @@ const EmailSignatureForm = () => {
             </td>
           </tr>
         </table>
-        <p style="font-size: 12px; font-family: Calibri, sans-serif; margin: 10px 6px 0">
+        <p style="font-size: 12px; margin: 10px 6px 0">
           <strong
-            >I respect your personal time and do not expect a response when you are not at work.</strong
+            >I respect your personal time and do not expect a response when you are
+            not at work.</strong
           >
         </p>
       </body>
     </html>
-    `
+        `
     return signature
   }
 
