@@ -79,21 +79,13 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-                <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
-                <img
-                  src="https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg?t=st=1712973332~exp=1712976932~hmac=c76750f1e285b022173db2348932c66b5ae63077dd617ec6e97e81761c53828b&w=1480"
-                  alt="Profile Photo"
-                  width="90"
-                  height="90"
-                  style="margin: 2px 10px 4px 0px"
-                />
-                <!-- <img 
+                <img 
                   src="${sanitizedProfileImg}" 
                   alt="Profile Photo" 
                   width="90" 
                   height="90" 
                   style="margin: 2px 10px 4px 0px"
-                /> -->
+                />
                 <p style="margin: 4px 5px 0px 0px; color: #ef8022">
                   <strong>${sanitizedFirstName} ${sanitizedLastName}</strong>
                 </p>
