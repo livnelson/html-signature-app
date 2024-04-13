@@ -51,7 +51,7 @@ const EmailSignatureForm = () => {
       </head>
       <body style="margin: 0; padding: 0; font-family: Calibri, sans-serif">
         <p style="margin: 0;">Warm Regards,</p>
-        <p style="margin: 10px 0px;">${sanitizedFirstName}</p>
+        <p style="margin: 2px 0px 20px 0px;">${sanitizedFirstName}</p>
         <table
           cellpadding="0"
           cellspacing="0"
@@ -66,10 +66,8 @@ const EmailSignatureForm = () => {
           <tr>
             <td
               style="
-                padding: 6px;
                 vertical-align: top;
                 width: 110px;
-                max-width: 120px;
                 border-right: 1px solid #ccc;
               "
             >
@@ -78,30 +76,22 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-              <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
-                <img
-                src="https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg?t=st=1712973332~exp=1712976932~hmac=c76750f1e285b022173db2348932c66b5ae63077dd617ec6e97e81761c53828b&w=1480"
-                alt="Profile Photo"
-                width="100"
-                height="100"
-                style="margin-right: 6px"
-                />
-                <!-- <img 
+                <img 
                   src="${sanitizedProfileImg}" 
                   alt="Profile Photo" 
-                  width="100" 
-                  height="100" 
+                  width="90" 
+                  height="90" 
                   style="margin-right: 6px"
-                /> -->
-                <h5
+                />
+                <p
                   style="
-                    margin: 4px 0px;
+                    margin: 4px 5px 0px 0px;
                     color: #ef8022;
                   "
                 >
-                  ${sanitizedFirstName} ${sanitizedLastName}
-                </h5>
-                <h6 style="margin: 4px 0px; color: #000;">
+                  <strong>${sanitizedFirstName} ${sanitizedLastName}</strong>
+                </p>
+                <h6 style="margin: 4px 5px 0px 0px; color: #000;">
                   <strong>${sanitizedTitle}</strong>
                 </h6>
               </a>
@@ -165,7 +155,7 @@ const EmailSignatureForm = () => {
                   alt="Peoplescape HR Logo"
                   width="150"
                   height="auto"
-                  style="margin-top: 4px"
+                  style="margin-top: 14px"
                 />
               </a>
             </td>
@@ -174,7 +164,7 @@ const EmailSignatureForm = () => {
         <p
           style="
             font-family: Calibri, sans-serif;
-            margin: 10px 6px 0;
+            margin: 20px 0px 0px 0px;
           "
         >
           <strong
