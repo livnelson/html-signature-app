@@ -50,8 +50,8 @@ const EmailSignatureForm = () => {
         <title>HTML Email Signature</title>
       </head>
       <body style="margin: 0; padding: 0; font-family: Calibri, sans-serif">
-        <p style="margin: 0;">Warm Regards,</p>
-        <p style="margin: 2px 0px 20px 0px;">${sanitizedFirstName}</p>
+        <p style="margin: 0">Warm Regards,</p>
+        <p style="margin: 2px 0px 10px 0px">${sanitizedFirstName}</p>
         <table
           cellpadding="0"
           cellspacing="0"
@@ -67,7 +67,7 @@ const EmailSignatureForm = () => {
             <td
               style="
                 vertical-align: top;
-                width: 110px;
+                width: 100px;
                 border-right: 1px solid #ccc;
               "
             >
@@ -81,68 +81,89 @@ const EmailSignatureForm = () => {
                   alt="Profile Photo" 
                   width="90" 
                   height="90" 
-                  style="margin-right: 6px"
+                  style="margin: 2px 10px 4px 0px"
                 />
-                <p
-                  style="
-                    margin: 4px 5px 0px 0px;
-                    color: #ef8022;
-                  "
-                >
+                <p style="margin: 4px 5px 0px 0px; color: #ef8022">
                   <strong>${sanitizedFirstName} ${sanitizedLastName}</strong>
                 </p>
-                <h6 style="margin: 4px 5px 0px 0px; color: #000;">
+                <h6 style="margin: 4px 5px 0px 0px; color: #000">
                   <strong>${sanitizedTitle}</strong>
                 </h6>
               </a>
             </td>
             <td style="padding: 6px; padding-left: 10px; vertical-align: top">
-              <p 
-                style="margin: 0;
-                margin-bottom: 2px;
-                padding-bottom: 3px;
-                font-family: Calibri, sans-serif;">
-              <span 
-                style="color: #ef8022;
-                display: inline-block;
-                width: 14px; 
-                text-align: center;">
-                <strong>M:&nbsp;&nbsp;</strong>
-              </span>
-              <a href="tel:${sanitizedCellPhone}" 
-                style="text-decoration:
-                none; color: #000;
-                display: inline-block; 
-                width: 100px;
-                vertical-align: middle;
-                font-family: Calibri, sans-serif;">
-                ${sanitizedCellPhone}</a>
-              </p>
-              <p 
-                style="margin: 0;
-                margin-bottom: 2px;
-                padding-bottom: 3px;
-                font-family: Calibri, sans-serif;">
+              <p
+                style="
+                  margin: 0;
+                  margin-bottom: 2px;
+                  padding-bottom: 3px;
+                  font-family: Calibri, sans-serif;
+                "
+              >
                 <span
-                  style="color: #ef8022;
-                  display: inline-block;
-                  width: 14px;
-                  text-align: center;">
+                  style="
+                    color: #ef8022;
+                    display: inline-block;
+                    width: 14px;
+                    text-align: center;
+                  "
+                >
+                  <strong>M:&nbsp;&nbsp;</strong>
+                </span>
+                <a
+                  href="tel:${sanitizedCellPhone}"
+                  style="
+                    text-decoration: none;
+                    color: #000;
+                    display: inline-block;
+                    width: 100px;
+                    vertical-align: middle;
+                    font-family: Calibri, sans-serif;
+                  "
+                >
+                  ${sanitizedCellPhone}</a
+                >
+              </p>
+              <p
+                style="
+                  margin: 0;
+                  margin-bottom: 2px;
+                  padding-bottom: 3px;
+                  font-family: Calibri, sans-serif;
+                "
+              >
+                <span
+                  style="
+                    color: #ef8022;
+                    display: inline-block;
+                    width: 14px;
+                    text-align: center;
+                  "
+                >
                   <strong>O:&nbsp;&nbsp;</strong>
                 </span>
-                <a href="tel:323 900-0511"
-                  style="text-decoration:
-                  none; color: #000;
-                  display: inline-block;
-                  width: 100px;
-                  vertical-align: middle;
-                  font-family: Calibri, sans-serif;">
-                  323 900-0511</a>
+                <a
+                  href="tel:323 900-0511"
+                  style="
+                    text-decoration: none;
+                    color: #000;
+                    display: inline-block;
+                    width: 100px;
+                    vertical-align: middle;
+                    font-family: Calibri, sans-serif;
+                  "
+                >
+                  323-900-0511</a
+                >
               </p>
               <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
                 <a
                   href="mailto:${sanitizedEmail}"
-                  style="text-decoration: none; color: #000; font-family: Calibri, sans-serif;"
+                  style="
+                    text-decoration: none;
+                    color: #000;
+                    font-family: Calibri, sans-serif;
+                  "
                   >${sanitizedEmail}</a
                 >
               </p>
@@ -161,12 +182,7 @@ const EmailSignatureForm = () => {
             </td>
           </tr>
         </table>
-        <p
-          style="
-            font-family: Calibri, sans-serif;
-            margin: 20px 0px 0px 0px;
-          "
-        >
+        <p style="font-family: Calibri, sans-serif; margin: 20px 0px 0px 0px">
           <strong
             >I respect your personal time and do not expect a response when you are
             not at work.</strong
@@ -174,7 +190,7 @@ const EmailSignatureForm = () => {
         </p>
       </body>
     </html>
-            `
+                `
     return signature
   }
 
