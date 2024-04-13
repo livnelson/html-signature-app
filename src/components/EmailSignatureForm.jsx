@@ -57,8 +57,10 @@ const EmailSignatureForm = () => {
           cellspacing="0"
           style="
             width: 100%;
+            height: auto;
             max-width: 500px;
             margin-top: 6px;
+            padding-bottom: 0px;
             border-collapse: collapse;
             font-family: Calibri, sans-serif;
           "
@@ -68,6 +70,7 @@ const EmailSignatureForm = () => {
               style="
                 vertical-align: top;
                 width: 100px;
+                padding-bottom: 0px;
                 border-right: 1px solid #ccc;
               "
             >
@@ -76,13 +79,21 @@ const EmailSignatureForm = () => {
                 target="_blank"
                 style="text-decoration: none"
               >
-                <img 
+                <!-- !REMOVE PLACEHOLDER IMAGE AND COMMENT IN LINE BELOW BEFORE DYPLOYING -->
+                <img
+                  src="https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg?t=st=1712973332~exp=1712976932~hmac=c76750f1e285b022173db2348932c66b5ae63077dd617ec6e97e81761c53828b&w=1480"
+                  alt="Profile Photo"
+                  width="90"
+                  height="90"
+                  style="margin: 2px 10px 4px 0px"
+                />
+                <!-- <img 
                   src="${sanitizedProfileImg}" 
                   alt="Profile Photo" 
                   width="90" 
                   height="90" 
                   style="margin: 2px 10px 4px 0px"
-                />
+                /> -->
                 <p style="margin: 4px 5px 0px 0px; color: #ef8022">
                   <strong>${sanitizedFirstName} ${sanitizedLastName}</strong>
                 </p>
@@ -91,7 +102,7 @@ const EmailSignatureForm = () => {
                 </h6>
               </a>
             </td>
-            <td style="padding: 6px; padding-left: 10px; vertical-align: top">
+            <td style="padding-left: 10px; padding-bottom: 0px; vertical-align: top">
               <p
                 style="
                   margin: 0;
@@ -176,13 +187,13 @@ const EmailSignatureForm = () => {
                   alt="Peoplescape HR Logo"
                   width="150"
                   height="auto"
-                  style="margin-top: 14px"
+                  style="margin-top: 10px; margin-bottom: 0px; padding-bottom: 0px;"
                 />
               </a>
             </td>
           </tr>
         </table>
-        <p style="font-family: Calibri, sans-serif; margin: 20px 0px 0px 0px">
+        <p style="font-family: Calibri, sans-serif; margin: 12px 0px 0px 0px">
           <strong
             >I respect your personal time and do not expect a response when you are
             not at work.</strong
