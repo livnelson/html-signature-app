@@ -115,7 +115,7 @@ const EmailSignatureForm = () => {
                 <a
                   href="tel:323 900-0511"
                   style="text-decoration: none; color: #000"
-                  >323 900-0511</a
+                  >323-900-0511</a
                 >
               </p>
               <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
