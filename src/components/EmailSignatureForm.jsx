@@ -102,26 +102,18 @@ const EmailSignatureForm = () => {
               </a>
             </td>
             <td style="padding: 6px; padding-left: 10px; vertical-align: top">
-              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
-                <span style="color: #ef8022"><strong>M:</strong></span>
-                <a
-                  href="tel:${sanitizedCellPhone}"
-                  style="text-decoration: none; color: #000"
-                  >${sanitizedCellPhone}</a
-                >
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; line-height: 1.25; font-family: Calibri, sans-serif;">
+              <span style="color: #ef8022; display: inline-block; width: 14px; text-align: center;"><strong>M:</strong></span>
+              <a href="tel:${sanitizedCellPhone}" style="text-decoration: none; color: #000; display: inline-block; width: 100px; vertical-align: middle; font-family: Calibri, sans-serif;">${sanitizedCellPhone}</a>
               </p>
-              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
-                <span style="color: #ef8022"><strong>O:</strong></span>
-                <a
-                  href="tel:323 900-0511"
-                  style="text-decoration: none; color: #000"
-                  >323-900-0511</a
-                >
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; line-height: 1.25; font-family: Calibri, sans-serif;">
+                <span style="color: #ef8022; display: inline-block; width: 14px; text-align: center;"><strong>O:</strong></span>
+                <a href="tel:323 900-0511" style="text-decoration: none; color: #000; display: inline-block; width: 100px; vertical-align: middle; font-family: Calibri, sans-serif;">323 900-0511</a>
               </p>
               <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
                 <a
                   href="mailto:${sanitizedEmail}"
-                  style="text-decoration: none; color: #000"
+                  style="text-decoration: none; color: #000; line-height: 1.25; font-family: Calibri, sans-serif;"
                   >${sanitizedEmail}</a
                 >
               </p>
