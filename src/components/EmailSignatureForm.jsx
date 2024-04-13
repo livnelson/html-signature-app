@@ -96,7 +96,7 @@ const EmailSignatureForm = () => {
                 >
                   ${sanitizedFirstName} ${sanitizedLastName}
                 </h5>
-                <p style="margin: 0; line-height: 1.25">
+                <p style="margin: 0; line-height: 1.25; color: #000;">
                   <strong>${sanitizedTitle}</strong>
                 </p>
               </a>
