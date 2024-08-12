@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #f1f3f5;
+  background-color: #f2f3f5;
 }
 
 .email-generator {
@@ -16,15 +16,21 @@ body {
   max-width: 460px;
 }
 
+.form-background{ 
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 7px;
+}
+
 .email-generator-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 7px;
   width: 440px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .instructions {
@@ -52,12 +58,12 @@ input {
 
 input:hover {
   outline: none;
-  border-color: #ef8022;
+  border-color: #44a1a0;
 }
 
 input:focus {
   outline: none;
-  border: solid 2px #ef8022;
+  border: solid 2px #44a1a0;
 }
 
 label {
@@ -66,4 +72,12 @@ label {
   letter-spacing: .5px;
   margin-top: 6px;
   font-weight: 500;
+}
+
+.placeholder{
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 10px 40px;
+  line-height: 1.35;
 }

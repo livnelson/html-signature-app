@@ -20,7 +20,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #ef8022;
+  color: #44a1a0;
 }
 
 body {
@@ -44,7 +44,7 @@ h2 {
   line-height: 1;
   margin-top: 10px;
   text-align: center;
-  color: #ef8022;
+  color: #44a1a0;
 }
 
 ol {
@@ -70,7 +70,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  background-color: #ef8022;
+  background-color: #44a1a0;
   color: white;
 }
 button:focus,
@@ -85,7 +85,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #ef8022;
+    color: #44a1a0;
   }
   button {
     background-color: #efefef;

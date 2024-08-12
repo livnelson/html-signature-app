@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import DOMPurify from 'dompurify'
+import { HexColorPicker, HexColorInput } from 'react-colorful'
 
 const EmailSignatureForm = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [title, setTitle] = useState('')
   const [cellPhone, setCellPhone] = useState('')
+  const [companyPhone, setCompanyPhone] = useState('')
+  const [companyWebsite, setCompanyWebsite] = useState('')
   const [email, setEmail] = useState('')
   const [photoURL, setPhotoURL] = useState('')
+  const [logoURL, setLogoURL] = useState('')
+  const [color, setColor] = useState('#44a1a0')
   const [error, setError] = useState('')
 
   const sanitizeAndEscape = (input) => {
@@ -30,9 +35,12 @@ const EmailSignatureForm = () => {
     const sanitizedFirstName = sanitizeAndEscape(firstName)
     const sanitizedLastName = sanitizeAndEscape(lastName)
     const sanitizedTitle = sanitizeAndEscape(title)
+    const sanitizedCompanyPhone = sanitizeAndEscape(companyPhone)
+    const sanitizedCompanyWebsite = sanitizeAndEscape(companyWebsite)
     const sanitizedCellPhone = sanitizeAndEscape(cellPhone)
     const sanitizedEmail = sanitizeAndEscape(email)
     const sanitizedProfileImg = sanitizeAndEscape(photoURL)
+    const sanitizedLogo = sanitizeAndEscape(logoURL)
 
     const signature = `
     <!DOCTYPE html>
@@ -49,9 +57,9 @@ const EmailSignatureForm = () => {
         />
         <title>HTML Email Signature</title>
       </head>
-      <body style="margin: 0; padding: 0; font-family: Calibri, sans-serif">
-        <p style="margin: 0">Warm Regards,</p>
-        <p style="margin: 2px 0px 10px 0px">${sanitizedFirstName}</p>
+      <body style="margin: 0; padding: 0; font-family: Calibri, sans-serif;">
+        <p style="margin: 0; font-family: Calibri, sans-serif;">Warm Regards,</p>
+        <p style="margin: 2px 0px 10px 0px; font-family: Calibri, sans-serif;">${sanitizedFirstName}</p>
         <table
           cellpadding="0"
           cellspacing="0"
@@ -62,7 +70,6 @@ const EmailSignatureForm = () => {
             margin-top: 6px;
             padding-bottom: 0px;
             border-collapse: collapse;
-            font-family: Calibri, sans-serif;
           "
         >
           <tr>
@@ -75,7 +82,7 @@ const EmailSignatureForm = () => {
               "
             >
               <a
-                href="https://peoplescapehr.com/our-team/"
+                href="${sanitizedLogo}"
                 target="_blank"
                 style="text-decoration: none"
               >
@@ -86,7 +93,7 @@ const EmailSignatureForm = () => {
                   height="90" 
                   style="margin: 2px 10px 4px 0px"
                 />
-                <p style="margin: 4px 5px 0px 0px; color: #ef8022">
+                <p style="margin: 4px 5px 0px 0px; font-family: Calibri, sans-serif; color:${color}">
                   <strong>${sanitizedFirstName} ${sanitizedLastName}</strong>
                 </p>
                 <h6 style="margin: 4px 5px 0px 0px; color: #000">
@@ -105,7 +112,7 @@ const EmailSignatureForm = () => {
               >
                 <span
                   style="
-                    color: #ef8022;
+                    color:${color};
                     display: inline-block;
                     width: 14px;
                     text-align: center;
@@ -121,7 +128,6 @@ const EmailSignatureForm = () => {
                     display: inline-block;
                     width: 100px;
                     vertical-align: middle;
-                    font-family: Calibri, sans-serif;
                   "
                 >
                   ${sanitizedCellPhone}</a
@@ -137,7 +143,7 @@ const EmailSignatureForm = () => {
               >
                 <span
                   style="
-                    color: #ef8022;
+                    color:${color};
                     display: inline-block;
                     width: 14px;
                     text-align: center;
@@ -146,37 +152,35 @@ const EmailSignatureForm = () => {
                   <strong>O:&nbsp;&nbsp;</strong>
                 </span>
                 <a
-                  href="tel:323 900-0511"
+                  href="${sanitizedCompanyPhone}"
                   style="
                     text-decoration: none;
                     color: #000;
                     display: inline-block;
                     width: 100px;
                     vertical-align: middle;
-                    font-family: Calibri, sans-serif;
                   "
                 >
-                  323-900-0511</a
+                  ${sanitizedCompanyPhone}</a
                 >
               </p>
-              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px">
+              <p style="margin: 0; margin-bottom: 2px; padding-bottom: 3px; font-family: Calibri, sans-serif;">
                 <a
                   href="mailto:${sanitizedEmail}"
                   style="
                     text-decoration: none;
                     color: #000;
-                    font-family: Calibri, sans-serif;
                   "
                   >${sanitizedEmail}</a
                 >
               </p>
               <a
-                href="https://peoplescapehr.com/"
+                href="${sanitizedCompanyWebsite}"
                 target="_blank"
               >
                 <img
-                  src="https://peoplescapehr.com/wp-content/uploads/2020/07/peoplescape_logo_2020-e1594693165758.png"
-                  alt="Peoplescape HR Logo"
+                  src="${sanitizedLogo}"
+                  alt="Company Logo"
                   width="150"
                   height="auto"
                   style="margin-top: 10px; margin-bottom: 0px; padding-bottom: 0px;"
@@ -185,7 +189,7 @@ const EmailSignatureForm = () => {
             </td>
           </tr>
         </table>
-        <p style="font-family: Calibri, sans-serif; margin: 12px 0px 0px 0px">
+        <p style="margin: 12px 0px 0px 0px; font-family: Calibri, sans-serif;">
           <strong
             >I respect your personal time and do not expect a response when you are
             not at work.</strong
@@ -224,71 +228,104 @@ const EmailSignatureForm = () => {
 
   return (
     <div className='email-generator'>
-      <form className='email-generator-form'>
-        <label>First Name:</label>
-        <input
-          type='text'
-          value={firstName}
-          placeholder='John'
-          required
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <br />
-        <label>Last Name:</label>
-        <input
-          type='text'
-          value={lastName}
-          placeholder='Doe'
-          required
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <br />
-        <label>Title:</label>
-        <input
-          type='text'
-          value={title}
-          placeholder='Job Title'
-          required
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
-        <label>Mobile Phone:</label>
-        <input
-          type='tel'
-          value={cellPhone}
-          placeholder='555-867-5309'
-          required
-          onChange={(e) => {
-            const formattedPhone = e.target.value
-              .replace(/\D/g, '') // Remove non-numeric characters
-              .replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3') // Format to XXX-XXX-XXXX
-            setCellPhone(formattedPhone)
-          }}
-        />
-        <br />
-        <label>Email:</label>
-        <input
-          type='email'
-          value={email}
-          placeholder='name@website.com'
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <label>Profile Photo URL:</label>
-        <input
-          type='url'
-          value={photoURL}
-          placeholder='https://example.com'
-          required
-          onChange={(e) => setPhotoURL(e.target.value)}
-        />
-        <br />
-        <button onClick={handleDownloadSignature}>
-          Download HTML Signature
-        </button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
+      <div className='form-background'>
+        <form className='email-generator-form'>
+          <label>First Name:</label>
+          <input
+            type='text'
+            value={firstName}
+            placeholder='John'
+            required
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <br />
+          <label>Last Name:</label>
+          <input
+            type='text'
+            value={lastName}
+            placeholder='Doe'
+            required
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <br />
+          <label>Title:</label>
+          <input
+            type='text'
+            value={title}
+            placeholder='Job Title'
+            required
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <br />
+          <label>Company Phone:</label>
+          <input
+            type='tel'
+            value={companyPhone}
+            placeholder='555-867-5309'
+            required
+            onChange={(e) => {
+              const formattedPhone = e.target.value
+                .replace(/\D/g, '') // Remove non-numeric characters
+                .replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3') // Format to XXX-XXX-XXXX
+              setCompanyPhone(formattedPhone)
+            }}
+          />
+          <br />
+          <label>Mobile Phone:</label>
+          <input
+            type='tel'
+            value={cellPhone}
+            placeholder='555-867-5309'
+            required
+            onChange={(e) => {
+              const formattedPhone = e.target.value
+                .replace(/\D/g, '') // Remove non-numeric characters
+                .replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3') // Format to XXX-XXX-XXXX
+              setCellPhone(formattedPhone)
+            }}
+          />
+          <br />
+          <label>Email:</label>
+          <input
+            type='email'
+            value={email}
+            placeholder='name@website.com'
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <label>Profile Photo URL:</label>
+          <input
+            type='url'
+            value={photoURL}
+            placeholder='https://example.com'
+            required
+            onChange={(e) => setPhotoURL(e.target.value)}
+          />
+          <p className='placeholder'>
+            Here is a placeholder you can use for
+            testing: https://rb.gy/4ash41
+          </p>
+          <br />
+          <label>Company Logo URL:</label>
+          <input
+            type='url'
+            value={logoURL}
+            placeholder='https://example.com'
+            required
+            onChange={(e) => setLogoURL(e.target.value)}
+          />
+          <p className='placeholder'>
+            Here is a placeholder you can use for
+            testing: https://rb.gy/s23eb1
+          </p>
+          <br />
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <button onClick={handleDownloadSignature}>
+            Download HTML Signature
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
