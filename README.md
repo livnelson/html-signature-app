@@ -4,10 +4,8 @@ This is a simple web application built with React that allows users to generate 
 
 ## Features
 
-- Input fields for name, title, mobile phone, email, and profile photo URL.
-- Sanitization and escaping of user inputs using DOMPurify.
+- Input fields for name, title, mobile phone, conpany phone, email, logo and profile photo URL.
 - Generation of an HTML email signature based on user inputs.
-- Copying the generated HTML signature to the clipboard.
 - Error handling for empty form fields.
 
 ## Technologies Used
@@ -32,6 +30,19 @@ To run this app locally, follow these steps:
 1. Fill out the form with your information.
 2. Click the "Copy HTML Signature" button to generate and copy the HTML signature to your clipboard.
 3. Paste the HTML code into your email client's signature settings to use the generated signature in your emails.
+4. Fill in the form fields:
+    
+  - First Name
+  - Last Name
+  - Title
+  - Company Phone
+  - Mobile Phone
+  - Email
+  - Profile Photo URL
+  - Company Logo URL
+
+5. Click the "Download HTML Signature" button to generate and download your email signature in HTML format.
+6. Paste the generated HTML into your email client's signature settings.
 
 ## License
 
